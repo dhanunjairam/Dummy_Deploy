@@ -15,7 +15,7 @@ def hindi_summary(article):
     # Remove extra whitespace/newlines
     WHITESPACE_HANDLER = lambda k: re.sub(r'\s+', ' ', re.sub(r'\n+', ' ', k.strip()))
     model_name = "csebuetnlp/mT5_m2o_hindi_crossSum"
-    tokenizer = T5Tokenizer.from_pretrained(model_name,use_fast=False)
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
     
     # Tokenize and prepare the input
