@@ -1,7 +1,7 @@
 import streamlit as st
 import torch
 import re
-from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM,T5Tokenizer
 
 # Function for English summarization using Facebook BART
 def english_summary(article):
@@ -15,7 +15,7 @@ def hindi_summary(article):
     # Remove extra whitespace/newlines
     WHITESPACE_HANDLER = lambda k: re.sub(r'\s+', ' ', re.sub(r'\n+', ' ', k.strip()))
     model_name = "csebuetnlp/mT5_m2o_hindi_crossSum"
-    tokenizer = AutoTokenizer.from_pretrained(model_name,use_fast=False)
+    tokenizer = T5Tokenizer.from_pretrained(model_name,use_fast=False)
     model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
     
     # Tokenize and prepare the input
