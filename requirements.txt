@@ -1,4 +1,4 @@
-fastapi
-uvicorn
-email-validator
-python-dotenv
+streamlit
+torch
+re
+transformers
