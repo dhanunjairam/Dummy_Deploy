@@ -4,12 +4,7 @@ import re
 from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM
 import evaluate
 from langdetect import detect
-import os
-import dotenv
-from dotenv import load_dotenv
-import logging
-load_dotenv()
-TOKEN = os.getenv("HUGGINGFACE_TOKEN")
+
 # Check if GPU is available
 device = 0 if torch.cuda.is_available() else -1
 
@@ -24,7 +19,7 @@ def load_hindi_summarizer():
     model_name = "ai4bharat/IndicBART"
     try:
         tokenizer = AutoTokenizer.from_pretrained(model_name)
-        model = AutoModelForSeq2SeqLM.from_pretrained(model_name,use_auth_token=TOKEN)
+        model = AutoModelForSeq2SeqLM.from_pretrained(model_name,use_auth_token=st.secrets["HUGGINGFACE_TOKEN"])
         return tokenizer, model
     except Exception as e:
         st.error(f"Error loading Hindi summarization model: {e}\n"
