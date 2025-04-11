@@ -1,6 +1,6 @@
-streamlit==1.19.0
-torch==1.13.0
-transformers==4.24.0
-evaluate==0.3.0
-langdetect==1.0.9
-python-dotenv==0.21.0
+streamlit
+torch
+transformers
+evaluate
+langdetect
+python-dotenv
