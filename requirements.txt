@@ -4,3 +4,4 @@ transformers
 evaluate
 langdetect
 python-dotenv
+sentencepiece
